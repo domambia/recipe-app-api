@@ -1,0 +1,12 @@
+version: "3"
+services:
+  # name is app
+  app:
+    build:
+      context: . # current directory
+    ports:
+      - "8000:8000" ## map project from port 8000 in container to 8000 outside your container
+    volumes:
+      - ./app:/app
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
